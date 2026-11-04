@@ -140,7 +140,7 @@ feedback_question_1 = """
 """
 
 feedback_question_2 = """
-This homework is easier than others, just to follow the rules Do not need to 
+This homework is easier than others, just to follow the rules Do not need to
 build algorithms.
 """
 
