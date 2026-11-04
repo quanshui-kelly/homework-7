@@ -33,7 +33,8 @@ class QLearningAgent:
         return max(self.get_q_value(state, action) for action in actions)
 
     def get_best_policy(self, state):
-        """Compute the best action to take in the state using Policy Extraction.
+        """Compute the best action to take in the state using
+        Policy Extraction.
         π(s) = argmax_a Q(s,a)
 
         If there are ties, return a random one for better performance.
@@ -80,9 +81,11 @@ class QLearningAgent:
             return random.choice(actions)
         return self.get_best_policy(state)
 
+
 # 3. Bridge Crossing Revisited
 def question3():
     return 'NOT POSSIBLE'
+
 
 # 5. Approximate Q-Learning
 class ApproximateQAgent(QLearningAgent):
@@ -96,7 +99,6 @@ class ApproximateQAgent(QLearningAgent):
         self.extractor = extractor
         self.weights = {}
 
-
     def get_weight(self, feature):
         """Get weight of a feature.
         Never seen feature should have a weight of 0.
@@ -104,7 +106,8 @@ class ApproximateQAgent(QLearningAgent):
         return self.weights.get(feature, 0.0)
 
     def get_q_value(self, state, action):
-        """Compute Q value based on the dot product of feature components and weights.
+        """Compute Q value based on the dot product of feature
+        components and weights.
         Q(s,a) = w_1 * f_1(s,a) + w_2 * f_2(s,a) + ... + w_n * f_n(s,a)
         """
         features = self.extractor(state, action)
@@ -128,6 +131,7 @@ class ApproximateQAgent(QLearningAgent):
                 self.get_weight(feature)
                 + self.learning_rate * difference * value
             )
+
 
 # 6. Feedback
 # Just an approximation is fine.
